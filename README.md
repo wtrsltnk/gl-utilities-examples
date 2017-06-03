@@ -1,4 +1,4 @@
-# gl.utilities Examples #
+# gl-utilities Examples #
 A few boring examples to showcase shader and vertexbuffer options.
 
 ![First example](00-screenshots/01-VertexAndColorExample-shot.png)
