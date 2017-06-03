@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(shadertest)
+project(gl-utilities-examples)
 
 include(libs/win-cpp-deps.cmake/win-cpp-deps.cmake)
 
@@ -30,7 +30,7 @@ set(SRC_Common
     glfw-setup.cpp
     glfw-setup.h
     stb_image.h
-    glextl.cpp
+    header-impl.cpp
     )
 
 include_directories(
