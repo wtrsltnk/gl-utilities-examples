@@ -1,5 +1,5 @@
 # gl-utilities Examples #
-A few boring examples to showcase [gl-utilites](http://github.com/wtrsltnk/gl-utilites) using shader and vertexbuffer options.
+A few boring examples to showcase [gl-utilities](http://github.com/wtrsltnk/gl-utilities) using shader and vertexbuffer options.
 
 ![First example](00-screenshots/01-VertexAndColorExample-shot.png)
 
