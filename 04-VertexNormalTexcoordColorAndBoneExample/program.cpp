@@ -31,8 +31,6 @@ public:
 
     float _value = 0.0f;
     float _mult = 15.0f;
-    float _angle;
-    glm::mat4 _model;
 
     ExampleShader _shader;
     ExampleVertexBuffer _vbuffer;
@@ -105,7 +103,6 @@ bool Program::SetUp()
 
     this->_bones[0] = glm::mat4(1.0f);
     this->_bones[1] = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-    this->_model = glm::mat4(1.0f);
     this->_texture.setup();
     this->_texture.load("opengl.png");
 
@@ -117,7 +114,7 @@ void Program::OnResize(int width, int height)
     glViewport(0, 0, width, height);
 
     this->_proj = glm::perspective(glm::radians(90.0f), float(width) / float(height), 0.1f, 4096.0f);
-    this->_view = glm::lookAt(this->_pos + glm::vec3(32.0f), this->_pos, glm::vec3(0.0f, 0.0f, 1.0f));
+    this->_view = glm::lookAt(this->_pos + glm::vec3(12.0f), this->_pos, glm::vec3(0.0f, 0.0f, 1.0f));
 }
 
 void Program::Render(double deltaTime)
@@ -126,15 +123,9 @@ void Program::Render(double deltaTime)
     if (this->_value > 5.0f || this->_value < -5.0f) this->_mult = -this->_mult;
     this->_bones[1] = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, this->_value));
 
-    this->_angle += (90.0f * deltaTime);
-    this->_model = glm::mat4(1.0f);
-    this->_model = glm::rotate(this->_model, glm::radians(this->_angle), glm::vec3(0.0f, 0.0f, 1.0f));
-    this->_model = glm::translate(this->_model, glm::vec3(0.0f, 30.0f, 0.0f));
-    this->_model = glm::rotate(this->_model, glm::radians(135.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-
     this->_shader.use();
     this->_shader.setupBones(((const float(*)[16])glm::value_ptr(this->_bones[0])), 2);
-    this->_shader.setupMatrices(glm::value_ptr(this->_proj), glm::value_ptr(this->_view), glm::value_ptr(this->_model));
+    this->_shader.setupMatrices(glm::value_ptr(this->_proj), glm::value_ptr(this->_view), glm::value_ptr(glm::mat4(1.0f)));
     this->_texture.use();
     this->_vbuffer.render();
 }
