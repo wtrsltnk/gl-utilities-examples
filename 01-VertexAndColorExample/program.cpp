@@ -1,8 +1,8 @@
 
 #include "glfw-setup.h"
 
-#include "gl.utilities.shaders.h"
-#include "gl.utilities.vertexbuffers.h"
+#include "gl-utilities-shaders.h"
+#include "gl-utilities-vertexbuffers.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

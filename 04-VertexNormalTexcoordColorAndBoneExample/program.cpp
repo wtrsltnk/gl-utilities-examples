@@ -3,9 +3,9 @@
 
 // First stb image so gl.utilities can use it for image loading
 #include "stb_image.h"
-#include "gl.utilities.shaders.h"
-#include "gl.utilities.vertexbuffers.h"
-#include "gl.utilities.textures.h"
+#include "gl-utilities-shaders.h"
+#include "gl-utilities-vertexbuffers.h"
+#include "gl-utilities-textures.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -107,7 +107,7 @@ bool Program::SetUp()
     this->_bones[1] = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
     this->_model = glm::mat4(1.0f);
     this->_texture.setup();
-    this->_texture.load("examples/opengl.png");
+    this->_texture.load("opengl.png");
 
     return true;
 }

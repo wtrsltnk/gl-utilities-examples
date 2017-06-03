@@ -3,9 +3,9 @@
 
 // First stb image so gl.utilities can use it for image loading
 #include "stb_image.h"
-#include "gl.utilities.shaders.h"
-#include "gl.utilities.vertexbuffers.h"
-#include "gl.utilities.textures.h"
+#include "gl-utilities-shaders.h"
+#include "gl-utilities-vertexbuffers.h"
+#include "gl-utilities-textures.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -44,10 +44,10 @@ bool Program::SetUp()
     glEnable(GL_DEPTH_TEST);
     glClearColor((142.0f / 255.0f), (179.0f / 255.0f), (171.0f / 255.0f), 1.0f);
 
-    this->_shader.compileFromFile("examples/vertex.glsl", "examples/fragment.glsl");
+    this->_shader.compileFromFile("vertex.glsl", "fragment.glsl");
 
     this->_texture.setup();
-    this->_texture.load("examples/opengl.png");
+    this->_texture.load("opengl.png");
 
     this->_vbuffer
             << ExampleVertex({ { 10.0f, -10.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, { -1.0f, 0.0f } })

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(shadertest)
 
-include(win-cpp-deps.cmake/win-cpp-deps.cmake)
+include(libs/win-cpp-deps.cmake/win-cpp-deps.cmake)
 
 install_dep("https://bitbucket.org/wincppdeps/glfw.git")
 install_dep("https://bitbucket.org/wincppdeps/glm.git")
@@ -21,21 +21,21 @@ find_package(GLFW3 REQUIRED)
 include_directories(${GLFW3_INCLUDE_DIR})
 
 set(SRC_Headers
-    gl.utilities.shaders.h
-    gl.utilities.textures.h
-    gl.utilities.vertexbuffers.h
+    libs/gl-utilities/include/gl-utilities-shaders.h
+    libs/gl-utilities/include/gl-utilities-textures.h
+    libs/gl-utilities/include/gl-utilities-vertexbuffers.h
     )
 
 set(SRC_Common
-    examples/glfw-setup.cpp
-    examples/glfw-setup.h
-    examples/stb_image.h
-    examples/glextl.cpp
+    glfw-setup.cpp
+    glfw-setup.h
+    stb_image.h
+    glextl.cpp
     )
 
 include_directories(
     ${CMAKE_SOURCE_DIR}
-    ${CMAKE_SOURCE_DIR}/examples
+    libs/gl-utilities/include
     )
 
 add_library(common ${SRC_Common})
@@ -44,7 +44,7 @@ add_library(common ${SRC_Common})
 
 add_executable(VertexAndColorExample
     ${SRC_Headers}
-    examples/01-VertexAndColorExample/program.cpp
+    01-VertexAndColorExample/program.cpp
     )
 
 target_link_libraries(VertexAndColorExample
@@ -57,10 +57,10 @@ target_link_libraries(VertexAndColorExample
 
 add_executable(VertexNormalAndTexcoordExample
     ${SRC_Headers}
-    examples/02-VertexNormalAndTexcoordExample/program.cpp
-    examples/vertex.glsl
-    examples/fragment.glsl
-    examples/opengl.png
+    02-VertexNormalAndTexcoordExample/program.cpp
+    vertex.glsl
+    fragment.glsl
+    opengl.png
     )
 
 target_link_libraries(VertexNormalAndTexcoordExample
@@ -73,8 +73,8 @@ target_link_libraries(VertexNormalAndTexcoordExample
 
 add_executable(VertexNormalTexcoordAndColorExample
     ${SRC_Headers}
-    examples/03-VertexNormalTexcoordAndColorExample/program.cpp
-    examples/opengl.png
+    03-VertexNormalTexcoordAndColorExample/program.cpp
+    opengl.png
     )
 
 target_link_libraries(VertexNormalTexcoordAndColorExample
@@ -87,8 +87,8 @@ target_link_libraries(VertexNormalTexcoordAndColorExample
 
 add_executable(VertexNormalTexcoordColorAndBoneExample
     ${SRC_Headers}
-    examples/04-VertexNormalTexcoordColorAndBoneExample/program.cpp
-    examples/opengl.png
+    04-VertexNormalTexcoordColorAndBoneExample/program.cpp
+    opengl.png
     )
 
 target_link_libraries(VertexNormalTexcoordColorAndBoneExample
