@@ -6,6 +6,7 @@
 #include "gl-utilities-shaders.h"
 #include "gl-utilities-vertexbuffers.h"
 #include "gl-utilities-textures.h"
+#include "gl-utilities-loaders.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -104,7 +105,7 @@ bool Program::SetUp()
     this->_bones[0] = glm::mat4(1.0f);
     this->_bones[1] = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
     this->_texture.setup();
-    this->_texture.load("opengl.png");
+    TextureLoader().execute(&this->_texture, "opengl.png");
 
     return true;
 }
