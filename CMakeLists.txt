@@ -24,6 +24,7 @@ set(SRC_Headers
     libs/gl-utilities/include/gl-utilities-shaders.h
     libs/gl-utilities/include/gl-utilities-textures.h
     libs/gl-utilities/include/gl-utilities-vertexbuffers.h
+    libs/gl-utilities/include/gl-utilities-loaders.h
     )
 
 set(SRC_Common
